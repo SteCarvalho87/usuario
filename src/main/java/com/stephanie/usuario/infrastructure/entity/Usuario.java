@@ -2,29 +2,24 @@ package com.stephanie.usuario.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.jspecify.annotations.Nullable;
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
-// Getter, Setter e construtores feito automaticamento com o lombok
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
-//Entity -> Identifico que a classe se trata de uma tabela usando o JPA
-//@Table identifico o nome da tabela com JPA
 @Entity
 @Table(name = "usuario")
 public class Usuario implements UserDetails {
 
-    @Id//Criação do ID com JPA
-    //Id pode ser gerado manualmente ou automaticamente
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // gerado automaticamente com JPA
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name ="nome", length = 100)
     private String nome;
@@ -33,9 +28,6 @@ public class Usuario implements UserDetails {
     @Column(name = "senha", length = 255)
     private String senha;
 
-    //Configurando vários endereços vinculando uma tabela de endereço ao usuário
-    //no caso de ser apensa um seria @OneToOne/Cascade faz com que se um usuário seja deletado o endereço também seja
-    //A coluna que identifica o pertencimento do endereço é usuario_id
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private List<Endereco> enderecos;
