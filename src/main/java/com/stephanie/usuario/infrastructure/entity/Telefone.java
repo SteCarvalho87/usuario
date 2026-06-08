@@ -19,5 +19,6 @@ public class Telefone {
     private Long numero;
     @Column(name = "ddd", length = 3)
     private Long ddd;
-
+    @Column(name = "usuario_id")
+    private Long usuario_id;
 }
