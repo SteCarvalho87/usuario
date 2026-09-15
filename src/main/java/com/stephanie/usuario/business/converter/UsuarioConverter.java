@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class UsuarioConverter {
 
-    public Usuario nparaUsuario(UsuarioDTO usuarioDTO){
+    public Usuario paraUsuario(UsuarioDTO usuarioDTO){
         return Usuario.builder()
                 .nome(usuarioDTO.getNome())
                 .email(usuarioDTO.getEmail())
