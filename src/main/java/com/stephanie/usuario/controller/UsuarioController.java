@@ -1,11 +1,9 @@
 package com.stephanie.usuario.controller;
 
 import com.stephanie.usuario.business.UsuarioService;
-import com.stephanie.usuario.business.converter.UsuarioConverter;
 import com.stephanie.usuario.business.dto.EnderecoDTO;
 import com.stephanie.usuario.business.dto.TelefoneDTO;
 import com.stephanie.usuario.business.dto.UsuarioDTO;
-import com.stephanie.usuario.infrastructure.entity.Usuario;
 import com.stephanie.usuario.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
